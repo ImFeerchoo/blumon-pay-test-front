@@ -1,0 +1,25 @@
+.background_blumon_pay{
+    background-color: rgb(1, 1, 61)
+}
+
+.navbar{
+    border-bottom: 1px solid rgba(155, 155, 155, .5);
+    height: 125px;
+}
+
+.menu_options{
+    border-right: 1px solid rgba(155, 155, 155, .5);
+}
+
+.logo_container{
+    /* max-width: 30%; */
+    max-width: 30%;
+}
+
+.logo{
+    width: 100%;
+    max-width: 250px;
+}
+
+
+

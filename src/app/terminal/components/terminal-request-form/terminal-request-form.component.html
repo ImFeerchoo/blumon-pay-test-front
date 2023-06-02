@@ -1,0 +1,37 @@
+<form class="mt-5" (submit)="submitInformation()" [formGroup]="terminalOwnerInformation">
+    
+    <div class="row d-flex justify-content-evenly mb-5">
+        <div class="col-3">
+            <label class="text-white">Nombre*</label>
+            <input type="text" class="form-control m-auto" placeholder="Nombre del titular" formControlName="name"/>
+        </div>
+        
+        <div class="col-3">
+            <label class="text-white">Apellido*</label>
+            <input type="text" class="form-control" placeholder="Apellido del titular" formControlName="lastName"/>
+        </div>
+        
+        <div class="col-3">
+            <label class="text-white">Fecha de nacimiento*</label>
+            <input type="date" class="form-control" formControlName="fechaDeNacimiento"/>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-evenly mb-5">
+        <div class="col-5">
+            <label class="text-white">Número de tarjeta*</label>
+            <input type="text" class="form-control m-auto" placeholder="Número de tarjeta" formControlName="numeroDeTarjeta"/>
+        </div>
+        
+        <div class="col-5">
+            <label class="text-white" >Banco Emisor*</label>
+            <input type="text" class="form-control" placeholder="Banco Emisor" formControlName="bancoEmisor"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <input type="submit" class="btn btn-primary float-end" value="Enviar"/>
+        </div>
+    </div>
+</form>

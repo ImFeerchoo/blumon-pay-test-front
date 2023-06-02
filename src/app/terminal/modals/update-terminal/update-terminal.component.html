@@ -1,0 +1,51 @@
+  <form (submit)="update()" [formGroup]="terminalOwnerInformation"
+        class="modal fade" id="updateTerminal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Terminal con id {{terminal?.idTerminal}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <!-- <form (submit)="update()" [formGroup]="terminalOwnerInformation"> -->
+
+                <div class="row d-flex justify-content-evenly mb-3">
+                    <div class="col-5">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" formControlName="name" [value]="terminal?.name"/>
+                    </div>
+                    <div class="col-5">
+                        <label>Apellido</label>
+                        <input type="text" class="form-control" formControlName="lastName" [value]="terminal?.lastName"/>
+                    </div>
+                </div>
+    
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label>Fecha de nacimiento</label>
+                        <input type="date" class="form-control" formControlName="bornDate" [value]="terminal?.bornDate"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label>Número de tarjeta</label>
+                        <input type="text" class="form-control" formControlName="cardNumber" [value]="terminal?.cardNumber"/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label>Banco emisor</label>
+                        <input type="text" class="form-control" formControlName="bank" [value]="terminal?.bank"/>
+                    </div>
+                </div>
+            <!-- </form> -->
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
+    </div>
+</form>

@@ -8,6 +8,8 @@ import { PrimengModule } from './primeng/primeng.module';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { TerminalModule } from './terminal/terminal.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,6 +17,7 @@ import { TerminalModule } from './terminal/terminal.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     PrimengModule,
     MegaMenuModule,
     TerminalModule

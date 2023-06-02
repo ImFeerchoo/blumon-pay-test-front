@@ -1,0 +1,27 @@
+<table class="table table-hover table-dark mt-4">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de nacimiento</th>
+            <th>Número de tarjeta</th>
+            <th>Banco</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let terminal of terminals">
+            <td>{{terminal.name}}</td>
+            <td>{{terminal.lastName}}</td>
+            <td>{{terminal.bornDate}}</td>
+            <td>{{terminal.cardNumber}}</td>
+            <td>{{terminal.bank}}</td>
+            <td>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#updateTerminal" class="btn btn-info me-2" (click)="selectTerminal(terminal.idTerminal!)">✒</button>
+                <button class="btn btn-danger" (click)="delete(terminal.idTerminal!)">🗑</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-update-terminal [terminal]="selectedTerminal"></app-update-terminal>

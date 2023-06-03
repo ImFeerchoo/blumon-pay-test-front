@@ -33,11 +33,13 @@ export class TerminalsShowedComponent implements OnInit {
   }
 
   getTerminals(){
+    console.log('GetTerminals');
     this.terminalService.findAll()
         .subscribe(data => this.terminals = data);
   }
 
   delete(id: number): void{
+    console.log('Se va a eliminar el id: ' + id);
     this.terminalService.delete(id)
       .subscribe(() => {
         this.getTerminals();

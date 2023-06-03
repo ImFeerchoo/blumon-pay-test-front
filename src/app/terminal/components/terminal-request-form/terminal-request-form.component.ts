@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { TerminalService } from '../../services/terminal.service';
 import { Terminal } from '../../interfaces/terminal.interface';
 
@@ -10,15 +10,24 @@ import { Terminal } from '../../interfaces/terminal.interface';
 })
 export class TerminalRequestFormComponent {
 
+  @Output('terminalSaved')
+  terminalSavedEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor (private terminalService: TerminalService){}
 
   terminalOwnerInformation = new FormGroup({
-    name: new FormControl(''),
-    lastName: new FormControl(''),
-    fechaDeNacimiento: new FormControl(''),
-    numeroDeTarjeta: new FormControl(''),
-    bancoEmisor: new FormControl('')
+    name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    fechaDeNacimiento: new FormControl('', [Validators.required]),
+    numeroDeTarjeta: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]),
+    bancoEmisor: new FormControl('', [Validators.required, Validators.minLength(1)])
   });
+
+  isInvalidField( field: string ): boolean | null {
+    let controls = this.terminalOwnerInformation.controls;
+    return this.terminalOwnerInformation.controls[field as keyof typeof controls].invalid &&
+    this.terminalOwnerInformation.controls[field as keyof typeof controls]?.touched;
+  }
 
   getTerminalFromForm(): Terminal{
     let terminal: Terminal = {
@@ -37,7 +46,9 @@ export class TerminalRequestFormComponent {
 
     let terminal = this.getTerminalFromForm();
     this.terminalService.save(terminal)
-      .subscribe();
+      .subscribe( _ => {
+        this.terminalSavedEvent.emit(true);
+      });
 
     console.log(terminal);
 

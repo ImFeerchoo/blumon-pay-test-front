@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TerminalRequestFormComponent } from './components/terminal-request-form/terminal-request-form.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TerminalsShowedComponent } from './components/terminals-showed/terminals-showed.component';
 import { UpdateTerminalComponent } from './modals/update-terminal/update-terminal.component';
 
@@ -21,7 +21,8 @@ import { UpdateTerminalComponent } from './modals/update-terminal/update-termina
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
     // RouterModule.forRoot(routes)
   ],
   exports: [

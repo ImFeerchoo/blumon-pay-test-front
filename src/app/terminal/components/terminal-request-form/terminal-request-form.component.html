@@ -4,16 +4,28 @@
         <div class="col-3">
             <label class="text-white">Nombre*</label>
             <input type="text" class="form-control m-auto" placeholder="Nombre del titular" formControlName="name"/>
+            <span *ngIf="isInvalidField('name')"
+                          class="form-text text-danger">
+                        Error en el campo
+            </span>
         </div>
         
         <div class="col-3">
             <label class="text-white">Apellido*</label>
             <input type="text" class="form-control" placeholder="Apellido del titular" formControlName="lastName"/>
+            <span *ngIf="isInvalidField('lastName')"
+                          class="form-text text-danger">
+                        Error en el campo
+            </span>
         </div>
         
         <div class="col-3">
             <label class="text-white">Fecha de nacimiento*</label>
             <input type="date" class="form-control" formControlName="fechaDeNacimiento"/>
+            <span *ngIf="isInvalidField('fechaDeNacimiento')"
+                          class="form-text text-danger">
+                        Error en el campo
+            </span>
         </div>
     </div>
 
@@ -21,17 +33,26 @@
         <div class="col-5">
             <label class="text-white">Número de tarjeta*</label>
             <input type="text" class="form-control m-auto" placeholder="Número de tarjeta" formControlName="numeroDeTarjeta"/>
+            <span *ngIf="isInvalidField('numeroDeTarjeta')"
+                          class="form-text text-danger">
+                        Error en el campo
+            </span>
         </div>
         
         <div class="col-5">
             <label class="text-white" >Banco Emisor*</label>
             <input type="text" class="form-control" placeholder="Banco Emisor" formControlName="bancoEmisor"/>
+            <span *ngIf="isInvalidField('bancoEmisor')"
+                          class="form-text text-danger">
+                        Error en el campo
+            </span>
         </div>
     </div>
 
     <div class="row">
         <div>
-            <input type="submit" class="btn btn-primary float-end" value="Guardar"/>
+            <input type="submit" class="btn btn-primary float-end" value="Guardar"
+            [disabled]="this.terminalOwnerInformation.invalid"/>
         </div>
     </div>
 </form>

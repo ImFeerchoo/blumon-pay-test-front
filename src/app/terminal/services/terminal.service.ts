@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { Terminal } from '../interfaces/terminal.interface';
 
 @Injectable({
@@ -13,7 +13,9 @@ export class TerminalService {
   constructor(private httpClient: HttpClient) { }
 
   findAll(): Observable<Terminal[]>{
-    return this.httpClient.get<Terminal[]>(`${this.baseUrl}/getAll`);
+    return this.httpClient.get<Terminal[]>(`${this.baseUrl}/getAll`).pipe(
+      catchError(e => of([]))
+    );
   }
 
   save(terminal: Terminal): Observable<Terminal>{

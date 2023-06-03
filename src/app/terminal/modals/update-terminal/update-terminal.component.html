@@ -13,30 +13,50 @@
                 <div class="row d-flex justify-content-evenly mb-3">
                     <div class="col-5">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" formControlName="name" [value]="terminal?.name"/>
+                        <input type="text" class="form-control" formControlName="name"/>
+                        <span *ngIf="isInvalidField('name')"
+                          class="form-text text-danger">
+                            Error en el campo
+                        </span>
                     </div>
                     <div class="col-5">
                         <label>Apellido</label>
-                        <input type="text" class="form-control" formControlName="lastName" [value]="terminal?.lastName"/>
+                        <input type="text" class="form-control" formControlName="lastName"/>
+                        <span *ngIf="isInvalidField('lastName')"
+                          class="form-text text-danger">
+                            Error en el campo
+                        </span>
                     </div>
                 </div>
     
                 <div class="row mb-3">
                     <div class="col-12">
                         <label>Fecha de nacimiento</label>
-                        <input type="date" class="form-control" formControlName="bornDate" [value]="terminal?.bornDate"/>
+                        <input type="date" class="form-control" formControlName="bornDate"/>
+                        <span *ngIf="isInvalidField('bornDate')"
+                          class="form-text text-danger">
+                            Error en el campo
+                        </span> 
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-12">
                         <label>Número de tarjeta</label>
-                        <input type="text" class="form-control" formControlName="cardNumber" [value]="terminal?.cardNumber"/>
+                        <input type="text" class="form-control" formControlName="cardNumber"/>
+                        <span *ngIf="isInvalidField('cardNumber')"
+                          class="form-text text-danger">
+                            Error en el campo
+                        </span>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-12">
                         <label>Banco emisor</label>
-                        <input type="text" class="form-control" formControlName="bank" [value]="terminal?.bank"/>
+                        <input type="text" class="form-control" formControlName="bank"/>
+                        <span *ngIf="isInvalidField('bank')"
+                          class="form-text text-danger">
+                            Error en el campo
+                        </span>
                     </div>
                 </div>
             <!-- </form> -->
@@ -44,7 +64,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Actualizar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="this.terminalOwnerInformation.invalid">Actualizar</button>
         </div>
       </div>
     </div>
